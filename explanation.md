@@ -30,3 +30,7 @@ To run the YOLO application using Docker Compose, follow these instructions:
     - Change into the yolo directory using the command cd yolo
     - Build the Docker images and start the containers by running sudo docker-compose up --build
     - The backend will be running on port 5000 and the frontend will be running on port 3000. You can access the application in your web browser at http://localhost:3000
+
+## Docker Hub Images
+Frontend image - https://hub.docker.com/repository/docker/lennydennis/yolo_frontend
+Backend image - https://hub.docker.com/repository/docker/lennydennis/yolo_backend
