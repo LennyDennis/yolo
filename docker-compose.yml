@@ -3,7 +3,7 @@ version: '3.3'
 services:
   backend:
     build: ./backend
-    image: lennydennis/yolo_backend
+    image: lennydennis/yolo_backend:1
     container_name: yolo_backend
     ports:
       - '5000:5000'
@@ -13,7 +13,7 @@ services:
       - mongo
   client:
     build: ./client
-    image: lennydennis/yolo_frontend
+    image: lennydennis/yolo_frontend:1
     container_name: yolo_frontend
     ports:
       - '3000:3000'
