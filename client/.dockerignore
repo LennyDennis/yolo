@@ -1,10 +1,7 @@
-package-lock.json
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
+node_modules
+npm-debug.log
+build
+.dockerignore
+**/.git
+**/.DS_Store
+**/node_modules
