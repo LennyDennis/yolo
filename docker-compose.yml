@@ -1,0 +1,42 @@
+version: '3.3'
+
+services:
+  backend:
+    build: ./backend
+    image: lennydennis/yolo_backend
+    container_name: yolo_backend
+    ports:
+      - '5000:5000'
+    networks:
+      - yolo_network
+    depends_on:
+      - mongo
+  client:
+    build: ./client
+    image: lennydennis/yolo_frontend
+    container_name: yolo_frontend
+    ports:
+      - '3000:3000'
+    networks:
+      - yolo_network
+    depends_on:
+      - backend
+
+  mongo:
+    image: mongo
+    container_name: mongo_db
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: lenny
+      MONGO_INITDB_ROOT_PASSWORD: lenny
+    networks:
+      - yolo_network
+    volumes:
+      - mydb:/data/db
+
+networks:
+  yolo_network:
+    driver: bridge
+volumes:
+  mydb:
