@@ -1,0 +1,21 @@
+---
+- name: Playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Git
+      include_role:
+        name: git-role
+
+    - name: Install Docker
+      include_role:
+        name: docker-role
+
+    - name: Checkout git repository
+      git:
+        repo: "https://github.com/LennyDennis/yolo"
+        dest: "/home/lenny/yolo"
+
+    - name: Setup container
+      include_role:
+        name: docker-compose-role
