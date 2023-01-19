@@ -1,0 +1,38 @@
+---
+- name: Install system packages
+  apt:
+    pkg:
+      - ca-certificates
+      - apt-transport-https
+      - software-properties-common
+      - virtualenv
+      - curl
+      - python3-pip
+      - python3-setuptools
+    state: latest
+    update_cache: true
+
+- name: Add GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: Update and install docker-ce and docker-compose
+  apt:
+    pkg:
+      - docker-ce
+      - docker-compose
+    state: latest
+    update_cache: true
+
+- name: Install Python Docker Module
+  pip:
+    name: docker
+
+
+ 
