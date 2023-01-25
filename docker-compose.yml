@@ -21,7 +21,6 @@ services:
       - yolo_network
     depends_on:
       - backend
-
   mongo:
     image: mongo
     container_name: mongo_db
