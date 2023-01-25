@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo-backend
+  namespace: yolo
+  labels:
+    app: yolo
+    component: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: backend
+  template:
+    metadata:
+      labels:
+        app: yolo
+        component: backend
+    spec:
+      containers:
+        - name: yolo_backend
+          image: lennydennis/yolo_backend:1
+          ports:
+            - containerPort: 5000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yolo_backend
+  namespace: yolo
+  labels:
+    app: yolo
+    component: backend
+spec:
+  selector:
+    app: yolo
+    component: backend
+  ports:
+    - port: 5000
+      targetPort: 5000
+      protocol: TCP
+      name: http
