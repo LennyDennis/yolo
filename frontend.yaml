@@ -18,7 +18,7 @@ spec:
         component: frontend
     spec:
       containers:
-        - name: yolo_frontend
+        - name: yolo-frontend
           image: lennydennis/yolo_frontend:1
           ports:
             - containerPort: 3000
